@@ -43,7 +43,7 @@ main{
     background: white;
     overflow: auto;
     padding: 20px;
-    height: 480px;
+    height: 380px;
 }
 main .main_block{
     float: left;
@@ -69,6 +69,14 @@ ul{
 }
 .sitemap li {
 	list-style: none;
+}
+main .faq {
+	float: left;
+	width: 855px;
+}
+main .faq p {
+	margin-top: 5px;
+	margin-bottom: 5px;
 }
 footer {
 	overflow: auto;
