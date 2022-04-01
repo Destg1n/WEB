@@ -1,16 +1,84 @@
-body {
-background: #f9e933;
+body{
+    background: #f9e933;
+    font-family: 'Droid sans';
+	font-size: 115%;
 }
-header, main, footer {
-min-width: 855px;
+a {
+	text-decoration: none;
+	color: green;
 }
-header .container, main .container, footer .container {
-max-width: 855px;
-margin: auto;
+a:hover {
+	text-decoration: underline;
+	color: green;
 }
-header {
-background: white;
+h1, h2, h3, h4{
+    font-family: Ubuntu;
+    font-size: 120%;
 }
-main {
-background: white;
+header, main, footer{
+    min-width: 1290px;
+}
+header .container, main .container, footer .container{
+    max-width: 1290px;
+    margin: auto;
+}
+header{
+    background: white;
+    overflow: auto;
+    margin-bottom: 3px;
+    padding: 10px;
+}
+header h1 {
+    float: left;
+    width: 570px;
+    font-size: 300%;
+    font-style: italic;
+}
+header nav {
+    float: right;
+    width: 285px;
+    padding-top: 20px;
+}
+main{
+    background: white;
+    overflow: auto;
+    padding: 20px;
+    height: 480px;
+}
+main .main_block{
+    float: left;
+    width: 570px;
+}
+main .image{
+    float: right;
+    width: 300px;
+	margin-top: 0px;
+}
+main h2{
+    font-size: 120%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+main h3{
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+ul{
+	list-style: circle;
+	list-style-position: inside;
+}
+.sitemap li {
+	list-style: none;
+}
+footer {
+	overflow: auto;
+	padding: 10px;
+}
+footer .contact {
+	float: left;
+	width: 570px;
+}
+footer .sitemap {
+	float: right;
+	width: 285px;
 }
