@@ -3,90 +3,108 @@ body{
     font-family: 'Droid sans';
 	font-size: 115%;
 }
-a {
+a{
 	text-decoration: none;
-	color: green;
+	color: red;
 }
+
 a:hover {
 	text-decoration: underline;
-	color: green;
+	color: red;
 }
-h1, h2, h3, h4{
-    font-family: Ubuntu;
-    font-size: 120%;
+
+h1, h2, h3, h4 {
+	font-family: Ubuntu;
+	font-size: 120%;
 }
-header, main, footer{
-    min-width: 1290px;
+
+header, main, footer {
+	min-width: 855px;
 }
-header .container, main .container, footer .container{
-    max-width: 1290px;
-    margin: auto;
+header .container, main .container, footer .container {
+	max-width: 855px;
+	margin: auto;
 }
-header{
-    background: white;
-    overflow: auto;
-    margin-bottom: 3px;
-    padding: 10px;
+
+header { 
+	background: white; 
+	overflow: auto;
+	margin-bottom: 3px;
+	padding: 10px;
 }
 header h1 {
-    float: left;
-    width: 570px;
-    font-size: 300%;
-    font-style: italic;
+	font-size: 35px;
+	float: left;
+	width: 570px;
 }
 header nav {
-    float: right;
-    width: 285px;
-    padding-top: 20px;
+	float: right;
+	width: 285px;
+	margin-top: 7px;
 }
-main{
-    background: white;
-    overflow: auto;
-    padding: 20px;
-    height: 380px;
-}
-main .main_block{
-    float: left;
-    width: 570px;
-}
-main .image{
-    float: right;
-    width: 300px;
-	margin-top: 0px;
-}
-main h2{
-    font-size: 120%;
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
-main h3{
-    margin-top: 10px;
-    margin-bottom: 5px;
-}
-ul{
-	list-style: circle;
-	list-style-position: inside;
-}
-.sitemap li {
-	list-style: none;
+main { 
+	background: white; 
+	overflow: auto;
+	padding: 20px;
+
 }
 main .faq {
 	float: left;
 	width: 855px;
 }
+
 main .faq p {
 	margin-top: 5px;
 	margin-bottom: 5px;
 }
-footer {
-	overflow: auto;
-	padding: 10px;
-}
-footer .contact {
+main .main_block {
 	float: left;
 	width: 570px;
 }
-footer .sitemap {
-	float: right;
+main .image {
+	float: right;	
 	width: 285px;
 }
+main h2 {
+	font-size: 120%;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+main h3 {
+	margin-top: 10px;
+	margin-bottom: 5px;	
+}
+
+footer {
+	overflow: auto;
+	padding: 20px;
+}
+
+footer .contact {
+	float: left;
+	opacity: 0.8;
+	width: 400px;
+}
+
+footer .sitemap {
+	float: right;	
+	width: 100px;
+}
+.faq h1{
+	font-size: 25px;
+}
+.tabs a span {
+	color: black;
+	display: inline-block; 
+	border-radius: 5px 5px 0 0; 
+	width: 120px; 
+	margin-right: 10px; 
+	text-align: center; 
+	background: #ccc; 
+	padding: 8px;
+}
+
+.tabs a span.active { 
+	background: #eee; 
+} 
