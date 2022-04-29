@@ -1,16 +1,16 @@
 body{
-    background: #f9e933;
+    background: #eee;
     font-family: 'Droid sans';
 	font-size: 115%;
 }
 a{
 	text-decoration: none;
-	color: red;
+	color: green;
 }
 
 a:hover {
 	text-decoration: underline;
-	color: red;
+	color: green;
 }
 
 h1, h2, h3, h4 {
