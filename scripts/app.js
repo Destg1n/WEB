@@ -1,11 +1,8 @@
-var toDos = [
-    "Закончить писать эту книгу",
-    "Вывести Грейси на прогулку в парк", 
-    "Ответить на электронные письма", 
-    "Подготовиться к лекции в понедельник", 
-    "Обновить несколько новых задач", 
-    "Купить продукты"
-    ];
+var main = function (toDoObjects) {
+	"use strict";
+	var toDos = toDoObjects.map(function (toDo) {
+		return toDo.description;
+	});
 
     $("document").ready( function(){
     $(".tabs a span").toArray().forEach(function (element) { 
@@ -46,3 +43,9 @@ var toDos = [
     })
     $(".tabs a:first-child span").trigger("click");
     }) 
+};
+$(document).ready(function () {
+    $.getJSON("./scripts/todos.json", function (toDoObjects) {
+        main(toDoObjects);
+    });
+}); 
