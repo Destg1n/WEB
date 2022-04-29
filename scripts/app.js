@@ -22,7 +22,10 @@ var main = function (toDoObjects) {
                     $(".content").append($("<li>").text(todo));
                 });
             } 
-            else if ($element.parent().is(":nth-child(3)")) { 
+			else if ($element.parent().is(":nth-child(3)")) {
+				console.log("щелк по тегам");
+			}
+            else if ($element.parent().is(":nth-child(4)")) { 
                 $(".content").append(
                     '<input type="text" class="inp">'+
                     '<button class="btn">Добавить</button>'
