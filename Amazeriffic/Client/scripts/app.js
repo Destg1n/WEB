@@ -72,8 +72,15 @@ var main = function (toDoObjects) {
 				$button = $("<button>").text("+");
 				$button.on("click", function () {
 					var description = $input.val(),
-					tags = $tagInput.val().split(","); 
-					toDoObjects.push({"description":description, "tags":tags}); 
+					tags = $tagInput.val().split(",");
+						toDoObjects.push({"description":description, "tags":tags});
+						// здесь мы отправляем быстрое сообщение на маршрут списка задач
+						$.post("todos", {}, function (response) {
+						// этот обратный вызов выполняется при ответе сервера
+						console.log("Мы отправили данные и получили ответ сервера!");
+						console.log(response);
+						4
+						}); 
 					toDos = toDoObjects.map(function (toDo) {
 						return toDo.description;
 					});
@@ -89,7 +96,7 @@ var main = function (toDoObjects) {
     }) 
 };
 $(document).ready(function () {
-    $.getJSON("./scripts/todos.json", function (toDoObjects) {
+    $.getJSON("todos.json", function (toDoObjects) {
         main(toDoObjects);
     });
 }); 
