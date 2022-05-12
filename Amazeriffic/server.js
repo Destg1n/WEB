@@ -19,7 +19,7 @@ http.createServer(app).listen(3000);
 app.use('/',express.static(__dirname + "/client"));
 app.use('/user/:username',express.static(__dirname + "/client"));
 app.use(express.urlencoded({ extended: true }));
-mongoose.connect('mongodb://localhost:27017', {
+mongoose.connect('mongodb://localhost', {
 		useNewUrlParser: true,
 		useUnifiedTopology: true 
 }).then(res => {
