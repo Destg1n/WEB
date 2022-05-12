@@ -72,21 +72,22 @@ var main = function (toDoObjects) {
 				$button = $("<button>").text("+");
 				$button.on("click", function () {
 					var description = $input.val(),
-					tags = $tagInput.val().split(",");
-						toDoObjects.push({"description":description, "tags":tags});
-						// здесь мы отправляем быстрое сообщение на маршрут списка задач
-						$.post("todos", {}, function (response) {
-						// этот обратный вызов выполняется при ответе сервера
-						console.log("Мы отправили данные и получили ответ сервера!");
-						console.log(response);
-						4
-						}); 
+					tags = $tagInput.val().split(","),
+						// создаем новый элемент списка задач
+						newToDo = {"description":description, "tags":tags};
+						$.post("todos", newToDo, function (result) {
+						console.log(result);
+						// нужно отправить новый объект на клиент
+						// после получения ответа сервера
+						toDoObjects.push(newToDo);
+						// обновляем toDos
 					toDos = toDoObjects.map(function (toDo) {
 						return toDo.description;
 					});
 					$input.val("");
 					$tagInput.val("");
 				});
+			});
 			$("main .content").append($inputLabel).append($input).append($tagLabel).append($tagInput).append($button); 
             }
             return false;
