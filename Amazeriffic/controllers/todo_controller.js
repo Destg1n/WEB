@@ -32,8 +32,35 @@ ToDosController.index = function (req, res) {
 };
 
 ToDosController.create = function (req, res) {
-	console.log("вызвано действие: создать");
-	res.send(200);
+	var username = req.params.username || null;
+	var newToDo = new ToDo({
+		"description": req.body.description,
+		"tags": req.body.tags
+	});
+
+	console.log("username: " + username);
+
+	User.find({"username": username}, function (err, result) {
+		if (err) {
+			res.send(500);
+		} else {
+			if (result.length === 0) {
+				newToDo.owner = null;
+			} else {
+				newToDo.owner = result[0]._id;
+			}
+			newToDo.save(function (err, result) {
+				console.log(result);
+				if (err !== null) {
+					// элемент не был сохранен!
+					console.log(err);
+					res.json(500, err);
+				} else {
+					res.status(200).json(result);
+				}
+			});
+		}
+	});
 };
 
 ToDosController.show = function (req, res) {
