@@ -176,3 +176,12 @@ main .content input{
 main .content button{
 	margin-top: 5px;
 }
+
+.linkEdit{
+	float: right;
+}
+
+.linkRemove{
+	float: right;
+	margin-left: 10px;
+}  

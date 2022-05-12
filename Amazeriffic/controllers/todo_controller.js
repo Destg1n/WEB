@@ -1,5 +1,4 @@
 var ToDo = require("../models/ToDo.js"),
-	mongoose = require("mongoose");
 	ToDosController = {};
 
 ToDosController.index = function (req, res) { 
@@ -16,7 +15,6 @@ ToDosController.index = function (req, res) {
 		});
 	};
 	if (username !== null) {
-		console.log("Поиск пользователя: "+username);
 		User.find({"username": username}, function (err, result) {
 			if (err !== null) {
 				res.json(500, err);
@@ -38,7 +36,6 @@ ToDosController.create = function (req, res) {
 		"tags": req.body.tags
 	});
 
-	console.log("username: " + username);
 
 	User.find({"username": username}, function (err, result) {
 		if (err) {
@@ -64,13 +61,38 @@ ToDosController.create = function (req, res) {
 };
 
 ToDosController.show = function (req, res) {
-	console.log("вызвано действие: показать");
-	res.send(200);
+	// это ID, который мы отправляем через URL
+	var id = req.params.id;
+	// находим элемент списка задач с соответствующим ID 
+	ToDo.find({"_id":id}, function (err, todo) {
+		if (err !== null) {
+			// возвращаем внутреннюю серверную ошибку 
+			res.status(500).json(err);
+		} else {
+			if (todo.length > 0) {
+				// возвращаем успех!
+				res.status(200).json(todo[0]);
+			} else {
+				// мы не нашли элемент списка задач с этим ID! 
+				res.send(404);
+			}
+		}
+	});
 };
 
 ToDosController.destroy = function (req, res) {
-	console.log("destroy action called");
-	res.send(200);
+	var id = req.params.id;
+	ToDo.deleteOne({"_id": id}, function (err, todo) {
+		if (err !== null) {
+			res.status(500).json(err);
+		} else {
+			if (todo.n === 1 && todo.ok === 1 && todo.deletedCount === 1) {
+				res.status(200).json(todo);
+			} else {
+				res.status(404).json({"status": 404});
+			}
+		}
+	});
 }
 
 ToDosController.update = function (req, res) {
